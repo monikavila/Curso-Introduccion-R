@@ -1,0 +1,75 @@
+\begin{frame}{Hoja de Referencia: Vectores}
+
+Se puede crear un vector de distintas formas:
+
+\begin{enumerate}
+\tightlist
+\item
+  \texttt{nombrevector <- c( , )}
+\item
+  \texttt{nombrevector <- limiteinferor:limitesuperior}
+\item
+  Usar generacion aleatoria (lo veremos mas tarde).
+\item
+  Para ver si es un vector usar la funcion:
+  \texttt{is.vector(vectorint)}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Hoja de referencia: Ejemplos}
+
+\begin{block}{Create vectors}
+
+Creamos un vector sin asignarlo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+Creamos un vector asignándolo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vectorint}\OtherTok{\textless{}{-}}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}
+
+\NormalTok{vectorint}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Hoja de referencia:  Ejemplos}
+\begin{block}{Como saber que tipo de vector creamos?}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.vector}\NormalTok{(vectorint)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(vectorint)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+\end{block}
+\end{frame}
+
+
