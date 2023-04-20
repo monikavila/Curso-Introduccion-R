@@ -107,7 +107,7 @@ res=chisq.test(sumsperday[,2])
 str(res)
 
 # Regresion
-install.packages("HistData")
+#install.packages("HistData")
 library(HistData)
 ?Galton
 head(Galton)
@@ -137,3 +137,6 @@ plot(linearreg)
 plot(jitter(parent,3),jitter(child,3),pch=19,col="orange")
 #lines(parent,linearreg$fitted.values,col="red",lwd=3)
 lines(parent,linearreg$fitted,col="red",lwd=3)
+
+# No quitar el comentario de la linea inferior. Solamente copiar en la consola para que ejecute 
+#rmarkdown::render("15FuncionesEstadisticasBasicas_cheatsheet.R",c("pdf_document","html_document"))
