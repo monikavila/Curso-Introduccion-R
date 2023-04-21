@@ -65,32 +65,32 @@ apropos("plot")
 #-----------------------------------------------------------------
 # Histograms
 #-----------------------------------------------------------------
-birth<-load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/birthn.Rdata")
-head(birthn)
-str(birthn)
-attach(birthn)
-summary(birthn)
-birthsn=as.numeric(birthn$births)
-hist(births)
+load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata")
+head(trafico)
+str(trafico)
+attach(trafico)
+summary(trafico)
+autosn=as.numeric(trafico$autos)
+hist(autos)
 # We do two histograms overlaying 
 # Days of the week, and days of the weekend. 
 # Weekends: red
-hist(births[day_of_week>5],breaks=seq(5000,16000,by=1000),col=rgb(1,0,0,0.5),xlim=c(5700,16000),ylim=c(0,2000),main="Overlapping Histograms",xlab="Births per day")
+hist(autos[day_of_week>5],breaks=seq(5000,16000,by=1000),col=rgb(1,0,0,0.5),xlim=c(5700,16000),ylim=c(0,2000),main="Overlapping Histogramas",xlab="Autos por dia")
 # Weekdays: mauve 
-hist(births[day_of_week<6],breaks=seq(5000,17000,by=1000),col=rgb(0,0,1,0.5),add=T)
+hist(autos[day_of_week<6],breaks=seq(5000,17000,by=1000),col=rgb(0,0,1,0.5),add=T)
 
 #-----------------------------------------------------------------
 # Boxplots 
 #-----------------------------------------------------------------
-boxplot(births)
-boxplot(births~day_of_week)
+boxplot(autos)
+boxplot(autos~day_of_week)
 
 #-----------------------------------------------------------------
 # Barplot
 #-----------------------------------------------------------------
-meansperday<- birthn %>% 
+meansperday<- trafico %>% 
   group_by(day_of_week) %>% 
-  summarise(ave=mean(births)) %>% 
+  summarise(ave=mean(autos)) %>% 
   arrange()
 vectormeans <- meansperday %>% .$ave
 vectormeans

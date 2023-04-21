@@ -95,11 +95,11 @@ t.test(extra~group,paired=FALSE) # Aqui no tomamos en cuenta que son los mismos 
 # Hay que tener en cuenta el diseno de experimento
 
 #  Testear grupos multiples 
-load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/birthn.Rdata")
-birthn[1:6,]
+load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata")
+trafico[1:6,]
 # Agrupar datos por dia 
 library(dplyr)
-sumsperday<-birthn%>% group_by(day_of_week) %>% summarise(sum=sum(births)) %>% arrange()
+sumsperday<-trafico%>% group_by(day_of_week) %>% summarise(sum=sum(autos)) %>% arrange()
 sumsperday
 # Testear si hay la misma probailidad de nacimiento en cada dia.
 # Supuestos:independencia entre dias y nacimientos

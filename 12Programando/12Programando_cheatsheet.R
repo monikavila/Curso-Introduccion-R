@@ -16,49 +16,49 @@ midirectorio
 #dir()
 #list.files()
 # Importar datos
-datos<-load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.Rdata")
-head(births)
-summary(births)
+datos<-load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata")
+head(trafico)
+summary(trafico)
 
 # Declaraciones logicas 
 # 1. Obtener subconjuntos de los datos  
   # EQUIDAD ==
   # 1.1 Obtener datos solo para los viernes
-  birthsFriday<-births[which(births[,4]==5),]
+  traficoViernes<-trafico[which(trafico[,4]==5),]
   # Primero, otenemos los booleanos que muestran cuando es viernes.
-  births[,4]==5
+  trafico[,4]==5
   # Luego obtenemos los indices cuando el boolean es verdadero
   ? which
-  which(births[,4]==5)
+  which(trafico[,4]==5)
   # Luego, obtenemos el sub conjunto utilizando los indices
-  birthsFriday<-births[which(births[,4]==5),]
+  traficoViernes<-trafico[which(trafico[,4]==5),]
   # Ahora, queremos solo el dia 12 del mes
-  birthsFriday12<-birthsFriday[which(birthsFriday[,3]==12),]
-  birthsFriday12
+  traficoViernes12<-traficoViernes[which(traficoViernes[,3]==12),]
+  traficoViernes12
   # INEQUIDAD !=
   # Ejemplo: Los viernes que no fueron el 12
-  notbirthsFriday12<-birthsFriday[which(birthsFriday[,3]!=12),]
-  notbirthsFriday12
-  nrow(birthsFriday12)+nrow(notbirthsFriday12)
-  nrow(birthsFriday)
+  nottraficoViernes12<-traficoViernes[which(traficoViernes[,3]!=12),]
+  nottraficoViernes12
+  nrow(traficoViernes12)+nrow(nottraficoViernes12)
+  nrow(traficoViernes)
   # EQUIDAD con un intervalo %in%
-  birthsWeekends<-births[which(births[,4] %in% c(6,7)),]
-  birthsWeekends
-  nrow(birthsWeekends)
+  traficoFindes<-trafico[which(trafico[,4] %in% c(6,7)),]
+  traficoFindes
+  nrow(traficoFindes)
   # INEQUIDAD <,>
-  birthsWeekends2<-births[which(births[,4] >5),]
-  birthsWeekends2
-  nrow(birthsWeekends2)
+  traficoFindes2<-trafico[which(trafico[,4] >5),]
+  traficoFindes2
+  nrow(traficoFindes2)
   # Mayor o igual >=
-  birthsWeekends3<-births[which(births[,4] >=6),]
-  birthsWeekends3
-  nrow(birthsWeekends3)
+  traficoFindes3<-trafico[which(trafico[,4] >=6),]
+  traficoFindes3
+  nrow(traficoFindes3)
   # Menor o igual <=
-  birthsWeekday<-births[which(births[,4] <=5),]
-  birthsWeekday
-  nrow(birthsWeekday)
+  traficoDiaSemana<-trafico[which(trafico[,4] <=5),]
+  traficoDiaSemana
+  nrow(traficoDiaSemana)
   # Valores perdidos is.na()
-  is.na(births)
+  is.na(trafico)
 
 # Condiciones y direcciones 
   # 1. Condicion si
@@ -69,7 +69,7 @@ summary(births)
   #  do something else
   #}
   
-  if (mean(birthsWeekends[,5])>mean(birthsWeekday[,5])){
+  if (mean(traficoFindes[,5])>mean(traficoDiaSemana[,5])){
     cat("En promedio, hay mas bebes en fines de semana")}else
       {cat("En promedio, mas bebes en dias de semana")}
   

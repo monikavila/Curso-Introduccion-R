@@ -35,32 +35,32 @@ list.files()
     ?dir
     dir("datos/raw")
     # Ver los datos
-    file.show("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv") 
+    file.show("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv") 
     # Importar datos
     ?read.csv # Default para el separadores ,
-    Hap<-read.csv("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv") 
-    head(Hap)
+    InformalTotal<-read.csv("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv") 
+    head(InformalTotal)
       # Debugging read.csv output
-      # Problema, el nombre de las filas es considerado como una variable 
+      # Si el nombre de las filas es considerado como una variable pero nosotros no queremos esto
       # llamada individual, pero inicialmente este es solamente un identificador
       # Para evitar esto, podemos poner las opciones de rownames, y colnames.
-    Hap1<-read.csv("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv",row.names = 1) 
-    head(Hap1)  
+    InformalTotal1<-read.csv("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv",row.names = 1) 
+    head(InformalTotal1)  
     # Ahora, ya no tenemos la variable individual como variable factor. 
     # Utilizar la funcion scan
-    scan("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv",nlines=5,what="") 
+    scan("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv",nlines=5,what="") 
     ?scan
 # 3. Archivo Excel con extensiones .xlsx, o .xls
     #install.packages("readxl")
     library(readxl)
     ?read_excel
-    Hap2<-read_excel("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.xlsx")
-    str(Hap2)
-    class(Hap2)
+    Informal<-read_excel("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Informal.xlsx")
+    str(Informal)
+    class(Informal)
     # read_excel uploads the data in a different format, and we can just convert it to dataframe
     # Convert it to a data frame
-    Hap2df<-as.data.frame(Hap2)
-    str(Hap2df)
+    Informaldf<-as.data.frame(Informal)
+    str(Informaldf)
 # 4. Importar datos de otros softwares 
     #install.packages("foreign")
     library(foreign)
@@ -69,20 +69,21 @@ list.files()
     ?read.dta
 # 5. Scraping la web y leyendo datos direcatmente (se necesita conexion al internet)
     # Datos que vienen de un Github
-    births<-read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/births/US_births_2000-2014_SSA.csv"))
-    head(births)
+    trafico<-read.csv(url("https://raw.githubusercontent.com/monikavila/Curso-Introduccion-R/main/datos/raw/trafico.csv"))
+    head(trafico)
     # Nota: Scraping datos con paquete rvest 
 # Bonus: Guardar acrhivo
-    write.csv(births,file="~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.csv")
-    file.show("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.csv")
+    write.csv(trafico,file="~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.csv")
+    file.show("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.csv")
     # Mejores practicas creando archivos de datos: no espacios en nombre de variables
     # csv ocupa bastante espacio, se puede crear un archivo binario usando
     # save file en binary R formato
-    save(births,file="~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.Rdata")
-    load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.Rdata")
+    save(trafico,file="~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata")
+    load("~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata")
     # Formato binario de R es mas eficiente y rapido de leer
     # Recursos: R import data 
     # https://cran.r-project.org/doc/manuals/r-devel/R-data.html
     
     # No quitar el comentario de la linea inferior. Solamente copiar en la consola para que ejecute 
     #rmarkdown::render("10ImportarDatos_cheatsheet.R",c("pdf_document","html_document"))
+    

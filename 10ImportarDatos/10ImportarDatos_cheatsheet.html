@@ -11,7 +11,7 @@
 
 <meta name="author" content="moka" />
 
-<meta name="date" content="2023-04-20" />
+<meta name="date" content="2023-04-21" />
 
 <title>10ImportarDatos_cheatsheet.R</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">10ImportarDatos_cheatsheet.R</h1>
 <h4 class="author">moka</h4>
-<h4 class="date">2023-04-20</h4>
+<h4 class="date">2023-04-21</h4>
 
 </div>
 
@@ -369,19 +369,17 @@ midirectorio</code></pre>
 <pre><code>## [1] &quot;/Users/moka/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/10ImportarDatos&quot;</code></pre>
 <pre class="r"><code># Obetener los archivos disponibles en el directorio
 dir()</code></pre>
-<pre><code>##  [1] &quot;10ImportarDatos_cheatsheet.aux&quot;      &quot;10ImportarDatos_cheatsheet.html&quot;    
-##  [3] &quot;10ImportarDatos_cheatsheet.pdf&quot;      &quot;10ImportarDatos_cheatsheet.R&quot;       
-##  [5] &quot;10ImportarDatos_cheatsheet.spin.R&quot;   &quot;10ImportarDatos_cheatsheet.spin.Rmd&quot;
-##  [7] &quot;10ImportarDatos_conceptos.aux&quot;       &quot;10ImportarDatos_conceptos.tex&quot;      
-##  [9] &quot;10ImportarDatos_lab.aux&quot;             &quot;10ImportarDatos_lab.log&quot;            
-## [11] &quot;10ImportarDatos_lab.tex&quot;</code></pre>
+<pre><code>##  [1] &quot;10ImportarDatos_cheatsheet.aux&quot;      &quot;10ImportarDatos_cheatsheet.html&quot;     &quot;10ImportarDatos_cheatsheet.pdf&quot;     
+##  [4] &quot;10ImportarDatos_cheatsheet.R&quot;        &quot;10ImportarDatos_cheatsheet.spin.R&quot;   &quot;10ImportarDatos_cheatsheet.spin.Rmd&quot;
+##  [7] &quot;10ImportarDatos_cheatsheetLatex.aux&quot; &quot;10ImportarDatos_cheatsheetLatex.tex&quot; &quot;10ImportarDatos_conceptos.aux&quot;      
+## [10] &quot;10ImportarDatos_conceptos.tex&quot;       &quot;10ImportarDatos_lab.aux&quot;             &quot;10ImportarDatos_lab.log&quot;            
+## [13] &quot;10ImportarDatos_lab.tex&quot;</code></pre>
 <pre class="r"><code>list.files()</code></pre>
-<pre><code>##  [1] &quot;10ImportarDatos_cheatsheet.aux&quot;      &quot;10ImportarDatos_cheatsheet.html&quot;    
-##  [3] &quot;10ImportarDatos_cheatsheet.pdf&quot;      &quot;10ImportarDatos_cheatsheet.R&quot;       
-##  [5] &quot;10ImportarDatos_cheatsheet.spin.R&quot;   &quot;10ImportarDatos_cheatsheet.spin.Rmd&quot;
-##  [7] &quot;10ImportarDatos_conceptos.aux&quot;       &quot;10ImportarDatos_conceptos.tex&quot;      
-##  [9] &quot;10ImportarDatos_lab.aux&quot;             &quot;10ImportarDatos_lab.log&quot;            
-## [11] &quot;10ImportarDatos_lab.tex&quot;</code></pre>
+<pre><code>##  [1] &quot;10ImportarDatos_cheatsheet.aux&quot;      &quot;10ImportarDatos_cheatsheet.html&quot;     &quot;10ImportarDatos_cheatsheet.pdf&quot;     
+##  [4] &quot;10ImportarDatos_cheatsheet.R&quot;        &quot;10ImportarDatos_cheatsheet.spin.R&quot;   &quot;10ImportarDatos_cheatsheet.spin.Rmd&quot;
+##  [7] &quot;10ImportarDatos_cheatsheetLatex.aux&quot; &quot;10ImportarDatos_cheatsheetLatex.tex&quot; &quot;10ImportarDatos_conceptos.aux&quot;      
+## [10] &quot;10ImportarDatos_conceptos.tex&quot;       &quot;10ImportarDatos_lab.aux&quot;             &quot;10ImportarDatos_lab.log&quot;            
+## [13] &quot;10ImportarDatos_lab.tex&quot;</code></pre>
 <pre class="r"><code># Importar datos en R </code></pre>
 <pre class="r"><code># 1. Archivo txt (archivo tipo ascii, con extension .txt): este tipo. de archivo es lisible por humanos pero otros tipo 
 # de archivos son mas dificiles de leer.
@@ -410,100 +408,104 @@ dir()</code></pre>
     dir(&quot;datos/raw&quot;)</code></pre>
 <pre><code>## character(0)</code></pre>
 <pre class="r"><code>    # Ver los datos
-    file.show(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv&quot;) 
+    file.show(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv&quot;) 
     # Importar datos
     ?read.csv # Default para el separadores ,
-    Hap&lt;-read.csv(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv&quot;) 
-    head(Hap)</code></pre>
-<pre><code>##   Individual DYS19 DXYS156Y DYS389m DYS389n DYS389p DYS389q DYS390m DYS390n DYS390p DYS390q DYS392
-## 1         H1    14       12       4      12       3      10       8      10       1       4     15
-## 2         H3    15       13       4      13       3       9       8      10       1       4     13
-## 3         H4    15       11       5      11       3      10       8      10       1       4     11
-## 4         H5    17       13       4      11       3      10       7      10       1       4     14
-## 5         H7    13       12       5      12       3      11       8      11       1       4     14
-## 6         H8    16       11       5      12       3      10       8      10       1       4     11
-##   DYS393 YAPbcbc SRY1532bb X92R7bb
-## 1     13       0         1       1
-## 2     12       0         1       1
-## 3     14       0         1       1
-## 4     12       0         1       1
-## 5     14       0         1       1
-## 6     15       0         1       1</code></pre>
+    InformalTotal&lt;-read.csv(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv&quot;) 
+    head(InformalTotal)</code></pre>
+<pre><code>##   X.1 Reference.area                    Source   Sex Time Total Agriculture Non.agriculture
+## 1   1    Afghanistan LFS - Labour Force Survey Total 2021  86.4        98.4            82.4
+## 2   4        Albania LFS - Labour Force Survey Total 2012  66.6        97.6            40.2
+## 3   7        Albania LFS - Labour Force Survey Total 2013  61.0        96.4            33.1
+## 4  10        Albania LFS - Labour Force Survey Total 2014  65.6        99.6            41.0
+## 5  13        Albania LFS - Labour Force Survey Total 2015  63.4        99.5            38.1
+## 6  16        Albania LFS - Labour Force Survey Total 2016  61.6        99.5            36.4
+##                                                                                                                                                                          X
+## 1 Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing \n-Data reference period: First quarter
+## 2                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 3                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 4                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 5                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 6                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing</code></pre>
 <pre class="r"><code>      # Debugging read.csv output
-      # Problema, el nombre de las filas es considerado como una variable 
+      # Si el nombre de las filas es considerado como una variable pero nosotros no queremos esto
       # llamada individual, pero inicialmente este es solamente un identificador
       # Para evitar esto, podemos poner las opciones de rownames, y colnames.
-    Hap1&lt;-read.csv(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv&quot;,row.names = 1) 
-    head(Hap1)  </code></pre>
-<pre><code>##    DYS19 DXYS156Y DYS389m DYS389n DYS389p DYS389q DYS390m DYS390n DYS390p DYS390q DYS392 DYS393
-## H1    14       12       4      12       3      10       8      10       1       4     15     13
-## H3    15       13       4      13       3       9       8      10       1       4     13     12
-## H4    15       11       5      11       3      10       8      10       1       4     11     14
-## H5    17       13       4      11       3      10       7      10       1       4     14     12
-## H7    13       12       5      12       3      11       8      11       1       4     14     14
-## H8    16       11       5      12       3      10       8      10       1       4     11     15
-##    YAPbcbc SRY1532bb X92R7bb
-## H1       0         1       1
-## H3       0         1       1
-## H4       0         1       1
-## H5       0         1       1
-## H7       0         1       1
-## H8       0         1       1</code></pre>
+    InformalTotal1&lt;-read.csv(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv&quot;,row.names = 1) 
+    head(InformalTotal1)  </code></pre>
+<pre><code>##    Reference.area                    Source   Sex Time Total Agriculture Non.agriculture
+## 1     Afghanistan LFS - Labour Force Survey Total 2021  86.4        98.4            82.4
+## 4         Albania LFS - Labour Force Survey Total 2012  66.6        97.6            40.2
+## 7         Albania LFS - Labour Force Survey Total 2013  61.0        96.4            33.1
+## 10        Albania LFS - Labour Force Survey Total 2014  65.6        99.6            41.0
+## 13        Albania LFS - Labour Force Survey Total 2015  63.4        99.5            38.1
+## 16        Albania LFS - Labour Force Survey Total 2016  61.6        99.5            36.4
+##                                                                                                                                                                           X
+## 1  Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing \n-Data reference period: First quarter
+## 4                                          Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 7                                          Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 10                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 13                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing
+## 16                                         Notes\n\n[8.3.1] Proportion of informal employment in total employment (%) \n-Repository: ILO-STATISTICS - Micro data processing</code></pre>
 <pre class="r"><code>    # Ahora, ya no tenemos la variable individual como variable factor. 
     # Utilizar la funcion scan
-    scan(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.csv&quot;,nlines=5,what=&quot;&quot;) </code></pre>
-<pre><code>## [1] &quot;Individual,DYS19,DXYS156Y,DYS389m,DYS389n,DYS389p,DYS389q,DYS390m,DYS390n,DYS390p,DYS390q,DYS392,DYS393,YAPbcbc,SRY1532bb,92R7bb&quot;
-## [2] &quot;H1,14,12,4,12,3,10,8,10,1,4,15,13,0,1,1&quot;                                                                                         
-## [3] &quot;H3,15,13,4,13,3,9,8,10,1,4,13,12,0,1,1&quot;                                                                                          
-## [4] &quot;H4,15,11,5,11,3,10,8,10,1,4,11,14,0,1,1&quot;                                                                                         
-## [5] &quot;H5,17,13,4,11,3,10,7,10,1,4,14,12,0,1,1&quot;</code></pre>
+    scan(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/InformalTotal.csv&quot;,nlines=5,what=&quot;&quot;) </code></pre>
+<pre><code>##  [1] &quot;&quot;                                                                                                   
+##  [2] &quot;,\&quot;Reference.area\&quot;,\&quot;Source\&quot;,\&quot;Sex\&quot;,\&quot;Time\&quot;,\&quot;Total\&quot;,\&quot;Agriculture\&quot;,\&quot;Non.agriculture\&quot;,\&quot;X\&quot;&quot;
+##  [3] &quot;1&quot;                                                                                                  
+##  [4] &quot;,\&quot;Afghanistan\&quot;,\&quot;LFS&quot;                                                                             
+##  [5] &quot;-&quot;                                                                                                  
+##  [6] &quot;Labour&quot;                                                                                             
+##  [7] &quot;Force&quot;                                                                                              
+##  [8] &quot;Survey\&quot;,\&quot;Total\&quot;,2021,86.4,98.4,82.4,\&quot;Notes&quot;                                                     
+##  [9] &quot;[8.3.1]&quot;                                                                                            
+## [10] &quot;Proportion&quot;                                                                                         
+## [11] &quot;of&quot;                                                                                                 
+## [12] &quot;informal&quot;                                                                                           
+## [13] &quot;employment&quot;                                                                                         
+## [14] &quot;in&quot;                                                                                                 
+## [15] &quot;total&quot;                                                                                              
+## [16] &quot;employment&quot;                                                                                         
+## [17] &quot;(%)&quot;                                                                                                
+## [18] &quot;-Repository:&quot;                                                                                       
+## [19] &quot;ILO-STATISTICS&quot;                                                                                     
+## [20] &quot;-&quot;                                                                                                  
+## [21] &quot;Micro&quot;                                                                                              
+## [22] &quot;data&quot;                                                                                               
+## [23] &quot;processing&quot;</code></pre>
 <pre class="r"><code>    ?scan
 # 3. Archivo Excel con extensiones .xlsx, o .xls
     #install.packages(&quot;readxl&quot;)
     library(readxl)
     ?read_excel
-    Hap2&lt;-read_excel(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Haplotype.xlsx&quot;)
-    str(Hap2)</code></pre>
-<pre><code>## tibble [24 × 16] (S3: tbl_df/tbl/data.frame)
-##  $ Individual: chr [1:24] &quot;H1&quot; &quot;H3&quot; &quot;H4&quot; &quot;H5&quot; ...
-##  $ DYS19     : num [1:24] 14 15 15 17 13 16 16 15 16 15 ...
-##  $ DXYS156Y  : num [1:24] 12 13 11 13 12 11 11 12 13 12 ...
-##  $ DYS389m   : num [1:24] 4 4 5 4 5 5 5 4 4 4 ...
-##  $ DYS389n   : num [1:24] 12 13 11 11 12 12 11 12 12 12 ...
-##  $ DYS389p   : num [1:24] 3 3 3 3 3 3 3 3 3 3 ...
-##  $ DYS389q   : num [1:24] 10 9 10 10 11 10 10 10 10 10 ...
-##  $ DYS390m   : num [1:24] 8 8 8 7 8 8 8 8 8 8 ...
-##  $ DYS390n   : num [1:24] 10 10 10 10 11 10 10 10 11 9 ...
-##  $ DYS390p   : num [1:24] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ DYS390q   : num [1:24] 4 4 4 4 4 4 4 4 4 4 ...
-##  $ DYS392    : num [1:24] 15 13 11 14 14 11 11 14 12 14 ...
-##  $ DYS393    : num [1:24] 13 12 14 12 14 15 14 13 12 13 ...
-##  $ YAPbcbc   : num [1:24] 0 0 0 0 0 0 0 0 0 0 ...
-##  $ SRY1532bb : num [1:24] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ 92R7bb    : num [1:24] 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<pre class="r"><code>    class(Hap2)</code></pre>
+    Informal&lt;-read_excel(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/raw/Informal.xlsx&quot;)</code></pre>
+<pre><code>## New names:
+## • `` -&gt; `...8`</code></pre>
+<pre class="r"><code>    str(Informal)</code></pre>
+<pre><code>## tibble [2,371 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ Reference area : chr [1:2371] &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Albania&quot; ...
+##  $ Source         : chr [1:2371] &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; ...
+##  $ Sex            : chr [1:2371] &quot;Total&quot; &quot;Male&quot; &quot;Female&quot; &quot;Total&quot; ...
+##  $ Time           : num [1:2371] 2021 2021 2021 2012 2012 ...
+##  $ Total          : num [1:2371] 86.4 83 97.3 66.6 63.4 70.6 61 58.9 63.5 65.6 ...
+##  $ Agriculture    : num [1:2371] 98.4 97.8 99.5 97.6 96.2 98.9 96.4 93.7 98.7 99.6 ...
+##  $ Non-agriculture: num [1:2371] 82.4 78.9 96.1 40.2 43.8 33.5 33.1 38.6 24.1 41 ...
+##  $ ...8           : chr [1:2371] &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ ...</code></pre>
+<pre class="r"><code>    class(Informal)</code></pre>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>    # read_excel uploads the data in a different format, and we can just convert it to dataframe
     # Convert it to a data frame
-    Hap2df&lt;-as.data.frame(Hap2)
-    str(Hap2df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    24 obs. of  16 variables:
-##  $ Individual: chr  &quot;H1&quot; &quot;H3&quot; &quot;H4&quot; &quot;H5&quot; ...
-##  $ DYS19     : num  14 15 15 17 13 16 16 15 16 15 ...
-##  $ DXYS156Y  : num  12 13 11 13 12 11 11 12 13 12 ...
-##  $ DYS389m   : num  4 4 5 4 5 5 5 4 4 4 ...
-##  $ DYS389n   : num  12 13 11 11 12 12 11 12 12 12 ...
-##  $ DYS389p   : num  3 3 3 3 3 3 3 3 3 3 ...
-##  $ DYS389q   : num  10 9 10 10 11 10 10 10 10 10 ...
-##  $ DYS390m   : num  8 8 8 7 8 8 8 8 8 8 ...
-##  $ DYS390n   : num  10 10 10 10 11 10 10 10 11 9 ...
-##  $ DYS390p   : num  1 1 1 1 1 1 1 1 1 1 ...
-##  $ DYS390q   : num  4 4 4 4 4 4 4 4 4 4 ...
-##  $ DYS392    : num  15 13 11 14 14 11 11 14 12 14 ...
-##  $ DYS393    : num  13 12 14 12 14 15 14 13 12 13 ...
-##  $ YAPbcbc   : num  0 0 0 0 0 0 0 0 0 0 ...
-##  $ SRY1532bb : num  1 1 1 1 1 1 1 1 1 1 ...
-##  $ 92R7bb    : num  1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+    Informaldf&lt;-as.data.frame(Informal)
+    str(Informaldf)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    2371 obs. of  8 variables:
+##  $ Reference area : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Albania&quot; ...
+##  $ Source         : chr  &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; &quot;LFS - Labour Force Survey&quot; ...
+##  $ Sex            : chr  &quot;Total&quot; &quot;Male&quot; &quot;Female&quot; &quot;Total&quot; ...
+##  $ Time           : num  2021 2021 2021 2012 2012 ...
+##  $ Total          : num  86.4 83 97.3 66.6 63.4 70.6 61 58.9 63.5 65.6 ...
+##  $ Agriculture    : num  98.4 97.8 99.5 97.6 96.2 98.9 96.4 93.7 98.7 99.6 ...
+##  $ Non-agriculture: num  82.4 78.9 96.1 40.2 43.8 33.5 33.1 38.6 24.1 41 ...
+##  $ ...8           : chr  &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ &quot;Notes\r\n\r\n[8.3.1] Proportion of informal employment in total employment (%) \r\n-Repository: ILO-STATISTICS &quot;| __truncated__ ...</code></pre>
 <pre class="r"><code># 4. Importar datos de otros softwares 
     #install.packages(&quot;foreign&quot;)
     library(foreign)
@@ -512,24 +514,24 @@ dir()</code></pre>
     ?read.dta
 # 5. Scraping la web y leyendo datos direcatmente (se necesita conexion al internet)
     # Datos que vienen de un Github
-    births&lt;-read.csv(url(&quot;https://raw.githubusercontent.com/fivethirtyeight/data/master/births/US_births_2000-2014_SSA.csv&quot;))
-    head(births)</code></pre>
-<pre><code>##   year month date_of_month day_of_week births
-## 1 2000     1             1           6   9083
-## 2 2000     1             2           7   8006
-## 3 2000     1             3           1  11363
-## 4 2000     1             4           2  13032
-## 5 2000     1             5           3  12558
-## 6 2000     1             6           4  12466</code></pre>
+    trafico&lt;-read.csv(url(&quot;https://raw.githubusercontent.com/monikavila/Curso-Introduccion-R/main/datos/raw/trafico.csv&quot;))
+    head(trafico)</code></pre>
+<pre><code>##   year month date_of_month day_of_week     autos
+## 1 2000     1             1           6  9084.165
+## 2 2000     1             2           7  8005.351
+## 3 2000     1             3           1 11363.158
+## 4 2000     1             4           2 13030.962
+## 5 2000     1             5           3 12559.135
+## 6 2000     1             6           4 12465.477</code></pre>
 <pre class="r"><code>    # Nota: Scraping datos con paquete rvest 
 # Bonus: Guardar acrhivo
-    write.csv(births,file=&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.csv&quot;)
-    file.show(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.csv&quot;)
+    write.csv(trafico,file=&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.csv&quot;)
+    file.show(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.csv&quot;)
     # Mejores practicas creando archivos de datos: no espacios en nombre de variables
     # csv ocupa bastante espacio, se puede crear un archivo binario usando
     # save file en binary R formato
-    save(births,file=&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.Rdata&quot;)
-    load(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/births1.Rdata&quot;)
+    save(trafico,file=&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata&quot;)
+    load(&quot;~/Dropbox/0.POST-PHD/GOALS/2.CODE/R/Ecomienza/datos/procesados/trafico1.Rdata&quot;)
     # Formato binario de R es mas eficiente y rapido de leer
     # Recursos: R import data 
     # https://cran.r-project.org/doc/manuals/r-devel/R-data.html
